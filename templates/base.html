@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    {%block head%}{% endblock%}
+</head>
+
+<body>
+    <!-- <section class="hero_bg"> -->
+         <!-- Grey half background -->
+        <!-- <div class="half-background"></div> -->
+        
+        
+        <ul class="navbar">
+            <li class="dermdetect"><img src="{{url_for('static', filename='img/DermDetect-Logo.png')}}" class="logo">DermDetect</li>
+            <li><a href="#"></a></li>
+            <li><a href="{{url_for('detection')}}" class="{% if active_page == 'detection' %} active {%endif%}">Detection</a></li>
+            <li><a href="{{url_for('information')}}" class="{% if active_page =='information' %} active {%endif%}">Information</a></li>
+            <li><a href="{{url_for('index')}}" class="{% if active_page =='home' %} active {%endif%}">Home</a></li>
+        </ul>
+
+    
+    {% block body %}{% endblock %}
+    <!-- </section> -->
+    
+    
+    <div class="footer">
+        <p> &copy 2026 DermDetect &#183 All Rights Reserved</p>
+    </div>
+</body>
+
+</html>

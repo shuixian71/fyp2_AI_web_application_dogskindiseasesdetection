@@ -1,0 +1,44 @@
+<!--inherit from base template nav bar and footer-->
+{% extends 'base.html' %}
+{%block head%}
+<title>Derm Detect</title>
+{% endblock %}
+
+{%block body%}
+<div class="home_container">
+    <div>
+        <h1 class="home_heading">Welcome to DermDetect!</h1>
+            <p class="home_paragraph"> Notice something unusual on your dog's skin? Don't worry - just upload an image, and let our <b>AI-powered system analyze</b> it and <b>identify potential skin diseases</b>. 
+                This enables you to take action quickly and keep your furry friend healthy.
+            </p>
+            <button class="button" onclick="document.location='/detection'">Try Detection Now</button>
+    </div>
+
+    <div class="home_img">
+         <img src="{{url_for('static', filename='img/pic-home.png')}}" width="290px">
+    </div>
+</div>
+
+<div>
+    <!-- steps to take result -->
+    <h1 class="title">Three Steps To Obtain Detection Result</h1>
+        <ul class="style_steps">
+            <li class="style_text">
+                <img src="{{url_for('static',filename='img/upload-icon.png')}}" width="120px" alt="" />
+                <h2>1.Upload image</h2>
+                <p>Upload a clear photo of ypur dog's skin condition from your device. Ensure the affected area is in focus and visible</p>
+            </li>
+            <li class="style_text">
+                <img src="{{url_for('static',filename='img/analyze-icon.png')}}" width="120px" alt="" />
+                <h2>2.Model Analyze Image Uploaded</h2>
+                <p>AI model analyzes the uploaded image to identify potential skin conditions and abnormalities</p>
+            </li>
+            <li class="style_text">
+                <img src="{{url_for('static',filename='img/result-icon.png')}}" width="120px" alt="" />
+                <h2>3.View Detection Results</h2>
+                <p>Review the detection results with identified skin diseases name and confidence level.</p>
+            </li>
+        </ul>
+</div>
+
+{% endblock %}
