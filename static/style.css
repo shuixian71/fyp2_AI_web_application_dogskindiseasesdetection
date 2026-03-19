@@ -458,7 +458,7 @@ html{
   display: flex;
 }
 
-/* ringworm module styling from line 459- 524*/
+/* ringworm module styling from line 459- 529*/
 
 .ringworm_caption{
   text-align: center;
@@ -506,7 +506,7 @@ html{
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .prevention_ringworm{
@@ -524,6 +524,76 @@ html{
   width: 60%;
   margin: 0  auto;
   padding: 10px;
+  margin-bottom: 10px;
+
+} /*end of css for ringworm page*/
+
+/* hypersensitivity module styling from line 531- */
+
+.ringworm_caption{
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.ringworm_container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:50px;
+  gap:40px;
+ 
+}
+
+.ringworm_paragraph{
+  font-size: 20px;
+}
+
+.symptoms_ringworm{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
   margin-bottom: 15px;
+}
+
+/* ringworm symptoms css */
+.card_ringworm{
+  /* add shadows to create card effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 2px solid #0d0c0c; /*visible black border*/
+  padding: 20px; /*dspace btw text n border*/
+  width: 270px;
+}
+
+.card_ringworm:hover{
+  box-shadow: 0 8px 16px 0 rgba (0,0,0,0.2);
+}
+
+.card_wrapper_ringworm{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.prevention_ringworm{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.prevention_step_ringworm{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 2px;
+  border: 1px solid #0d0c0c;
+  font-size: 20px;
+  text-align: center;
+  width: 60%;
+  margin: 0  auto;
+  padding: 10px;
+  margin-bottom: 10px;
 
 } /*end of css for ringworm page*/
