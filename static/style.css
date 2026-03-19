@@ -191,7 +191,7 @@ h2, p {
 }
 
 /* style for the card container for information */
-.cards{
+.cards_information{
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -203,7 +203,7 @@ h2, p {
   gap:20px;
 }
 
-.card{
+.card_information{
   display: flex;
   flex-direction: column;
   /* flex:0 0 100%; ori */
@@ -226,7 +226,7 @@ h2, p {
  
 }
 
-.card-title{
+.card-title_information{
   font-size: 1rem;
   font-weight: bold;
   margin: 12px 16px 8px;
@@ -234,19 +234,20 @@ h2, p {
   border-bottom: 1px solid #e0e0e0; /*line under the skin disease name*/
 }
 
-.card-content{
+.card-content_information{
   font-size: 0.9rem;
   color: #444;
   margin: 0 16px 16px;
   flex: 1 1 auto;
 }
 
-.card .card-link-wrapper{
+.card_information .card-link-wrapper_information{
   margin-top: auto;
   /* padding: 0 16px; */
 }
 
-.card-link {
+/* style for the view details button */
+.card-link_information {
   display: inline-block;
   background: #888;
   color: #fff;
@@ -257,42 +258,42 @@ h2, p {
   transition: background 0.2s;
 }
 
-.card-link:hover {
+.card-link_information:hover {
   background: #666;
 }
 
 /* reference from website for horizontal scrolling properties */
-.cards::-webkit-scrollbar{
+.cards_information::-webkit-scrollbar{
   height: 12px;
 }
 
-.cards::-webkit-scrollbar-thumb,
-.cards::-webkit-scrollbar-track {
+.cards_information::-webkit-scrollbar-thumb,
+.cards_information::-webkit-scrollbar-track {
   border-radius: 92px;
 }
 
-.cards::-webkit-scrollbar-thumb {
+.cards_information::-webkit-scrollbar-thumb {
   background: var(--darkred, #999);
 }
-.cards::-webkit-scrollbar-track {
+.cards_information::-webkit-scrollbar-track {
   background: var(--thumb, #e0e0e0);
 }
 
 @media (min-width: 700px) {
-  .card {
+  .card_information {
     flex-basis: calc(calc(100% / 3) - 20px);
      /* flex: 0 0 calc(calc(100% / 3) - 20px); */
   }
-  .card:not(:last-child) {
+  .card_information:not(:last-child) {
     margin-right: 30px;
   }
 }
 @media (min-width: 1100px) {
-  .card {
+  .card_information {
     flex-basis:  calc(25% - 30px);
      /* flex:0 0  calc(25% - 30px); */
   }
-  .card:not(:last-child) {
+  .card_information:not(:last-child) {
     margin-right: 40px;
   }
 }
@@ -422,7 +423,8 @@ html{
 
 .container .box .imgbox .file-name{
   font-size: 1.5rem;
-}
+} /* end of uplod button page css */
+
 
 /* predict button in detection page */
 .predict_button {
@@ -455,3 +457,73 @@ html{
 .container.active.imgbox{
   display: flex;
 }
+
+/* ringworm module styling from line 459- 524*/
+
+.ringworm_caption{
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.ringworm_container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:50px;
+  gap:40px;
+ 
+}
+
+.ringworm_paragraph{
+  font-size: 20px;
+}
+
+.symptoms_ringworm{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ringworm symptoms css */
+.card_ringworm{
+  /* add shadows to create card effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 2px solid #0d0c0c; /*visible black border*/
+  padding: 20px; /*dspace btw text n border*/
+  width: 270px;
+}
+
+.card_ringworm:hover{
+  box-shadow: 0 8px 16px 0 rgba (0,0,0,0.2);
+}
+
+.card_wrapper_ringworm{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.prevention_ringworm{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.prevention_step_ringworm{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 2px;
+  border: 1px solid #0d0c0c;
+  font-size: 20px;
+  text-align: center;
+  width: 60%;
+  margin: 0  auto;
+  padding: 10px;
+  margin-bottom: 15px;
+
+} /*end of css for ringworm page*/
