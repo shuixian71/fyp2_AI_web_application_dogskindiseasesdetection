@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head%}
+{%endblock%}
+
+{% block body%}
+<div>
+    <h1 class="title">Uploaded image of your dog skin condition</h1>
+</div>
+
+{% if image_filename%}
+<div class="result_image">
+    <img src="{{url_for('static', filename='uploads/' +image_filename)}}" alt="uploaded image of dog skin" style="max-width:350px; border-radius: 10px;">
+</div>
+{% endif %}
+
+<div class="detection_results_wrapper">
+    <div class="detection_results">
+        <h1>Detection Results:</h1>
+    </div>
+</div>
+
+<div class="disease_results_wrapper">
+    <div class="disease_results_css">
+        <h2>Disease Name: {{disease}} </h2>
+    </div>
+
+    <div class="disease_results_css">
+        <h2>Confidence Level: {{confidence}}</h3>
+    </div>
+</div>
+
+<div class="upload_new_image_btnwrapper">
+    <a href="/detection">
+        <button class="upload_image_button">Upload New Image</button>
+    </a>
+</div>
+
+{% endblock %}

@@ -597,3 +597,92 @@ html{
   margin-bottom: 10px;
 
 } /*end of css for ringworm page*/
+
+/* css for result page from line 601 until */
+.result_image{
+  display: flex;
+  justify-content: center;
+}
+
+.detection_results_wrapper{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top:  20px;
+}
+
+.detection_results{
+  width: 300px;
+  border-radius: 50px;
+  padding: 14px 32px;
+  background-color: #f0f0f0;
+  border: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.detection_results h1{
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 0;
+  color: #000;
+}
+
+.disease_results_css{
+  /* width: 250px; */
+  width: auto;
+   padding: 14px 32px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    /* margin-top: 30px; */
+    align-items: center;
+    /* margin: 20px auto; */
+    margin: 10px 0;
+    background-color: #eef4fd;
+    /* box-shadow: ; */
+}
+
+.disease_results_css h2{
+  font-size: 20px;
+  margin: 0;
+}
+
+.disease_results_wrapper{
+  width: 350px;
+  margin: 20px auto;
+  padding:10px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0, 0.08); 
+  background-color: #ded4d4;
+
+}
+
+/* upload new  button in detection page */
+.upload_image_button {
+  background-color:  #ADD8E6;
+  /* border: none; */
+  border-radius: 20px;
+  border: 2px solid #0d0c0c;
+  color: black;
+  /* padding: 35px 25px; */
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  /* float: right; */
+  margin: 20px auto 40px auto; 
+  margin-right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+.upload_new_image_btnwrapper{
+  display: flex;
+  justify-content: right;
+  margin-bottom: 40px;
+}

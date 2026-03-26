@@ -7,7 +7,7 @@
 
 {%block body%}
 <div>
-    <h1 class="title">Upload the image of dog skin conditions for detection</h1>
+    <h1 class="title">Upload the image of dog skin condition for detection</h1>
 </div>
 
 
@@ -50,9 +50,52 @@
 </div>
 
 <div>
-      <button class="predict_button" onclick="document.location='default.asp'">Predict</button>
+      <button class="predict_button" onclick="predictDisease()" id="predictBtn">Predict</button>
 </div>
 
+<!-- Result box (hidden until prediction is made) -->
+<!-- <div id="result-box" style="display:none; margin-top: 20px; text-align:center;">
+    <h2>Detected Disease: <span id="disease-name" style="color: #e74c3c;"></span></h2>
+    <p>Confidence: <span id="confidence-score"></span></p>
+</div> -->
+
 <script src="{{url_for('static',filename='browseFile.js')}}"></script>
+
+<script>
+    function predictDisease(){
+        const fileInput = document.getElementById('click'); // input file uploaded by user
+
+        if(!fileInput || !fileInput.files[0]){
+            alert('Please upload an image');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        document.getElementById('predictBtn').innerText = 'Predicting...';
+
+        fetch('/predict',{
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data =>{
+            if(data.error){
+                alert('Error' + data.error);
+            }else{
+                // document.getElementById('disease-name').innerText = data.disease;
+                // document.getElementById('confidence-score').innerText = data.confidence;
+                // document.getElementById('result-box').style.display = 'block';
+                window.location.href ='/result?disease=' +data.disease + '&confidence=' +data.confidence + '&image='+data.image_filename;
+            }
+            document.getElementById('predictBtn').innerText = 'Predict';
+        })
+        .catch(err =>{
+            alert('Something went wrong:' + err);
+            document.getElementById('predictBtn').innerText = 'Predict';
+        })
+    }
+</script>
 {% endblock %}
 

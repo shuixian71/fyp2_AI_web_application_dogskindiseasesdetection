@@ -64,6 +64,11 @@ dropContainer.addEventListener("drop",(event)=>{
         container.classList.add("active");
         fileName.innerHTML = file.name;
         fileSize.innerHTML = `${Math.round(file.size/1024)} KB`;
+
+        // add the the drag and drop file to the input
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        document.getElementById('click').files = dataTransfer.files;
     }
 
     //get file 
