@@ -263,7 +263,7 @@ h2, p {
 }
 
 /* reference from website for horizontal scrolling properties */
-.cards_information::-webkit-scrollbar{
+/* .cards_information::-webkit-scrollbar{
   height: 12px;
 }
 
@@ -277,7 +277,7 @@ h2, p {
 }
 .cards_information::-webkit-scrollbar-track {
   background: var(--thumb, #e0e0e0);
-}
+} */
 
 @media (min-width: 700px) {
   .card_information {
@@ -598,7 +598,7 @@ html{
 
 } /*end of css for ringworm page*/
 
-/* css for result page from line 601 until */
+/* css for result page from line 601 until  662*/
 .result_image{
   display: flex;
   justify-content: center;
@@ -685,4 +685,10 @@ html{
   display: flex;
   justify-content: right;
   margin-bottom: 40px;
+}
+
+/* css for the title disclaimer in result page */
+.disclaimer{
+  font-style: normal;
+  text-align: center;
 }
