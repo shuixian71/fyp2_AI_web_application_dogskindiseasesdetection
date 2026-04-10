@@ -6,15 +6,33 @@ import tensorflow as tf
 import io
 import os
 from werkzeug.utils import secure_filename
-
+from flask_mysqldb import MySQL
+from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 #My App
 app = Flask(__name__)
+
+#configure the database connection
+app.config['MYSQL_HOST']= os.getenv("MYSQL_HOST")
+app.config['MYSQL_USER'] = os.getenv("MYSQL_USER")
+app.config['MYSQL_PASSWORD'] = os.getenv("MYSQL_PASSWORD")
+app.config['MYSQL_DB'] = os.getenv("MYSQL_DB")
+mysql = MySQL(app)
+
+ #check whether database connected or not 
+@app.route('/test_db')
+def test_db():
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT 1")
+        return "Database connected"
+    except Exception as e:
+        return str(e)
 
 #load the fine tuned model
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model', 'best_model_V8.keras')
 model = tf.keras.models.load_model(MODEL_PATH)
-
-
 
 #Matching the class labels with the one trained in the google colab
 CLASS_NAMES = [
@@ -23,7 +41,7 @@ CLASS_NAMES = [
     'Healthy',
     'Hypersensitivity',
     'Demodicosis',
-    'ringworm'
+    'Ringworm'
 ]
 
 # image preprocessing part
@@ -69,7 +87,7 @@ def demodicosis():
 def fungal_infection():
     return render_template('fungal_infection.html', active_page='information')
 
-#route for upload new image button
+#route for predict and result
 @app.route('/result')
 def result():
     disease = request.args.get('disease','Unknown')
@@ -109,6 +127,26 @@ def predict():
         predicted_index = np.argmax(predictions[0])
         predicted_class = CLASS_NAMES[predicted_index]
         confidence = float(np.max(predictions[0])) * 100
+
+        #connect and configure
+        cur = mysql.connection.cursor()
+
+    #write the sql queires
+        cur.execute("""
+            INSERT INTO picture_uploaded (image_path,upload_date) VALUES (%s, %s)
+        """, (save_path,datetime.now()))
+
+        mysql.connection.commit()
+
+        #gget the uploaded id of image
+        upload_id = cur.lastrowid
+
+        cur.execute("""
+        INSERT INTO detection_result(upload_id, disease_name, confidence_level) VALUES (%s, %s, %s)
+        """, (upload_id, predicted_class,confidence))
+
+        mysql.connection.commit()
+        cur.close()
 
         return jsonify({
             'disease': predicted_class,

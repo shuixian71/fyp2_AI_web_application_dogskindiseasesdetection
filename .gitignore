@@ -2,6 +2,9 @@
 model/
 *.keras
 
+#database env 
+env/ 
+
 #python env
 env/
 __pycache__/
