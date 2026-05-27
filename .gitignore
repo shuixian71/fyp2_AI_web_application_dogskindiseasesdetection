@@ -2,8 +2,7 @@
 model/
 *.keras
 
-#database env 
-env/ 
+
 
 #python env
 env/
@@ -13,3 +12,6 @@ __pycache__/
 #uploads folder 
 static/uploads/*
 !static/uploads/.gitkeep
+
+#database env 
+.env
