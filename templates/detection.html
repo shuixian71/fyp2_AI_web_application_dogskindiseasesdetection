@@ -12,9 +12,10 @@
 
 
 <div class="detection-body">
-    <!-- reference from youtube videos: https://www.youtube.com/watch?v=nYjYs3Z6YwQ&list=PPSV -->
+    <!-- the upload UI and browse funcitonality is referenced from youtube videos https://www.youtube.com/watch?v=nYjYs3Z6YwQ&list=PPSV -->
     <div class="container">
         <div class="box">
+            <!-- upload image interface -->
             <div class="upload-box">
                 <i class="fa fa-cloud-upload"></i>
                 <h3>Drag and drop your image file here</h3>
@@ -30,6 +31,7 @@
                 <span class="size">Maximun Size:5 MB</span>
             </div>
 
+            <!-- showing the name of the image in the interface once uploaded by user -->
             <div class="imgbox">
                 <div class="imgiconbox">
                     <i class="fa-solid fa-file"></i> 
@@ -53,18 +55,15 @@
       <button class="predict_button" onclick="predictDisease()" id="predictBtn">Predict</button>
 </div>
 
-<!-- Result box (hidden until prediction is made) -->
-<!-- <div id="result-box" style="display:none; margin-top: 20px; text-align:center;">
-    <h2>Detected Disease: <span id="disease-name" style="color: #e74c3c;"></span></h2>
-    <p>Confidence: <span id="confidence-score"></span></p>
-</div> -->
 
 <script src="{{url_for('static',filename='browseFile.js')}}"></script>
 
+<!-- function for predicting disease once user click on predict button  -->
 <script>
     function predictDisease(){
         const fileInput = document.getElementById('click'); // input file uploaded by user
 
+        // check if user upload the image
         if(!fileInput || !fileInput.files[0]){
             alert('Please upload an image');
             return;
@@ -75,18 +74,17 @@
 
         document.getElementById('predictBtn').innerText = 'Predicting...';
 
+        //send to the backend through POST request
         fetch('/predict',{
             method: 'POST',
             body: formData
         })
         .then(response => response.json())
         .then(data =>{
+            //JSON return the result of skin disease name and confidence lvl
             if(data.error){
                 alert('Error' + data.error);
             }else{
-                // document.getElementById('disease-name').innerText = data.disease;
-                // document.getElementById('confidence-score').innerText = data.confidence;
-                // document.getElementById('result-box').style.display = 'block';
                 window.location.href ='/result?disease=' +data.disease + '&confidence=' +data.confidence + '&image='+data.image_filename;
             }
             document.getElementById('predictBtn').innerText = 'Predict';

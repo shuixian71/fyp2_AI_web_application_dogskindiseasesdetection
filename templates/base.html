@@ -1,3 +1,4 @@
+<!-- this is the code fort the header and footer -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,7 @@
     {%block head%}{% endblock%}
 </head>
 
-<body>
-    <!-- <section class="hero_bg"> -->
-         <!-- Grey half background -->
-        <!-- <div class="half-background"></div> -->
-        
-        
+<body>        
         <ul class="navbar">
             <li class="dermdetect"><img src="{{url_for('static', filename='img/DermDetect-Logo.png')}}" class="logo">DermDetect</li>
             <li><a href="#"></a></li>
@@ -21,10 +17,7 @@
             <li><a href="{{url_for('index')}}" class="{% if active_page =='home' %} active {%endif%}">Home</a></li>
         </ul>
 
-    
-    {% block body %}{% endblock %}
-    <!-- </section> -->
-    
+    {% block body %}{% endblock %} 
     
     <div class="footer">
         <p> &copy 2026 DermDetect &#183 All Rights Reserved</p>

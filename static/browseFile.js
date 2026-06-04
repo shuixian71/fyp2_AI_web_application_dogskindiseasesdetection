@@ -12,6 +12,7 @@ const dropContainer = document.querySelector(".container");
 const dropfileName = document.querySelector(".file-name");
 
 
+//show the uploaded file in the preview form when user browse and select a file
 file. addEventListener("change", ()=>{
     if (file.files.length ===0) {
         console.log("No file selected");
@@ -25,6 +26,7 @@ file. addEventListener("change", ()=>{
     }
 });
 
+//delete the uploaded file using delete icon
 deleteBtn.addEventListener("click", ()=>{
     file.value="";
     container.classList.remove("active");
@@ -36,7 +38,7 @@ dropContainer.addEventListener("dragover",(event)=>{
     event.preventDefault();
 });
 
-//drop file, apply prevent default behavior
+//drop file, apply prevent default behavior which vaidate the uploaded file is image and display the info
 dropContainer.addEventListener("drop",(event)=>{
     event.preventDefault();
     
@@ -48,6 +50,7 @@ dropContainer.addEventListener("drop",(event)=>{
         const isFile = item.kind === "file";
         const isImage = item.type.split("/")[0] === "image";
 
+        //check if the dropped file is a file and belongs to image
         if(isFile && isImage){
             file = item.getAsFile();
         }else{
@@ -70,8 +73,4 @@ dropContainer.addEventListener("drop",(event)=>{
         dataTransfer.items.add(file);
         document.getElementById('click').files = dataTransfer.files;
     }
-
-    //get file 
-    // const file = event.dataTransfer.files[0];
-    // console.log(file)
 });

@@ -12,6 +12,7 @@
 </div>
 
 {% if image_filename%}
+<!-- image is display in the result page only if image exists and uploaded by user in detection page -->
 <div class="result_image">
     <img src="{{url_for('static', filename='uploads/' +image_filename)}}" alt="uploaded image of dog skin" style="max-width:350px; border-radius: 10px;">
 </div>
@@ -24,7 +25,7 @@
 </div>
 
 <div class="disease_results_wrapper">
-    <div class="disease_results_css">
+    <div class="disease_results_css" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis;">
         <h2>Disease Name: {{disease}} </h2>
     </div>
 

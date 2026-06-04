@@ -37,7 +37,7 @@ model = tf.keras.models.load_model(MODEL_PATH)
 #Matching the class labels with the one trained in the google colab
 CLASS_NAMES = [
     'Dermatitis',
-    'Fungal_infections',
+    'Fungal Infections',
     'Healthy',
     'Hypersensitivity',
     'Demodicosis',
